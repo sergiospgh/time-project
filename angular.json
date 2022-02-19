@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ampere-time-project": {
+    "time-project": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ampere-time-project",
+            "outputPath": "dist/time-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -47,7 +47,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -79,14 +79,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ampere-time-project:build"
+            "browserTarget": "time-project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ampere-time-project:build:production"
+              "browserTarget": "time-project:build:production"
             },
             "development": {
-              "browserTarget": "ampere-time-project:build:development"
+              "browserTarget": "time-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ampere-time-project:build"
+            "browserTarget": "time-project:build"
           }
         },
         "test": {
@@ -135,15 +135,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ampere-time-project:serve"
+            "devServerTarget": "time-project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ampere-time-project:serve:production"
+              "devServerTarget": "time-project:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }},
-  "defaultProject": "ampere-time-project"
+  "defaultProject": "time-project"
 }

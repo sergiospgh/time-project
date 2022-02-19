@@ -1,0 +1,61 @@
+<!-- TODO: Introduce styles into css classes -->
+<!-- TODO: Let the user change the language and translate all the labels displayed -->
+<div class="p-grid p-fluid p-d-flex" [style]="{'margin-top':'5%', 'font-size':'35px'}">   
+    <span class="p-col-4 p-offset-2 p-text-bold">
+        Local time: {{ this.time | date: 'HH:mm:ss' }}
+    </span>
+    <span class="p-col-5 p-offset-1 p-text-bold">
+        Offset: {{ this.timeOffset }}
+    </span>
+</div>
+
+<div class="p-grid p-fluid p-d-flex p-ml-5 row" [style]="{'margin-top':'4%'}">
+    <div class="p-col-2 p-offset-1">
+        <p-dropdown
+            [options]="areasOptions"
+            showClear="true"
+            placeholder="Select an area"
+            filter="true"
+            filterBy="label"
+            [(ngModel)]="this.selectedArea"
+            (onChange)="this.getLocations()">
+        </p-dropdown>
+    </div>    
+    <div class="p-col-2 p-offset-1" *ngIf="this.selectedArea">
+        <p-dropdown
+            [options]="locationsOptions"
+            showClear="true"
+            placeholder="Select a location"
+            filter="true"
+            filterBy="label"
+            (onClear)="this.foundTime = null"
+            (onChange)="this.foundTime = null"
+            [(ngModel)]="this.selectedLocation">
+        </p-dropdown>
+    </div>
+    <div class="p-col-1 p-text-center">
+        <button pButton type="button" class="p-button-raised p-button-md" *ngIf="this.selectedArea && this.selectedLocation"
+            icon="pi pi-search"
+            (click)="this.getTime()"
+            [style]="{'width':'75%'}"
+        ></button>
+    </div>
+    <div class="p-col-5" [style]="{'font-size':'25px'}">
+        <span class="p-col-12" *ngIf="this.foundTime && this.foundTime !== 'error'">
+            <span class="p-col-6 p-text-bold">
+                Time: {{ this.foundTime.datetime | date: 'HH:mm:ss':this.foundTime.utc_offset }}
+            </span>
+            <span class="p-col-4 p-offset-1 p-text-bold">
+                Offset: {{ this.foundTime.utc_offset }}
+            </span>
+        </span>
+        <span *ngIf="this.foundTime === 'error'">
+            <h3>
+                Time not found
+            </h3>
+        </span>
+    </div>
+</div>
+
+
+

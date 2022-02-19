@@ -1,0 +1,33 @@
+<div class="p-d-flex p-jc-center" [style]="{'margin-top':'5%'}">
+    <button pButton type="button" class="p-button-raised p-button-rounded p-button-lg p-button-warning p-mt-3" icon="pi pi-undo"
+        [style]="{'width':'100px', 'height':'100px', 'margin-right':'5%', 'display':'grid'}"
+        (click)="this.time = null; this.counter = 0"
+        [disabled]="this.disabledButton || !this.time"
+        label="Reset"
+    ></button>
+
+    <button pButton type="button" class="p-button-raised p-button-rounded p-button-lg p-button-danger p-mr-5" icon="pi pi-pause"
+        [style]="{'width':'200px', 'height':'200px', 'display':'grid', 'font-size':'30px'}"
+        (click)="this.isRunning = false; this.disabledButton = !this.disabledButton"
+        [disabled]="!this.disabledButton"
+        label="Pause"        
+    ></button>
+
+    <button pButton type="button" class="p-button-raised p-button-rounded p-button-lg p-ml-5" icon="pi pi-play"
+        [style]="{'width':'200px', 'height':'200px', 'display':'grid', 'font-size':'30px'}"
+        (click)="this.isRunning = true; this.disabledButton = !this.disabledButton"
+        [disabled]="this.disabledButton"
+        onclick="this.disabled=!this.disabled"
+        label="Play"
+    ></button>
+</div>
+
+<div class="p-d-flex p-jc-center">
+    <span class="p-text-bold" [style]="{'font-size':'100px', 'margin-top':'3%'}">
+        {{ this.time | date:'mm:ss:SS'}}
+    </span> 
+</div>
+
+
+    
+    

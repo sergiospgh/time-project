@@ -7,16 +7,16 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    // children: [
-    //   {
-    //     path: 'timezone',
-    //     loadChildren: () => import('@components/timezone/timezone.module').then(m => m.TimezoneModule)
-    //   },
-    //   {
-    //     path: 'stopwatch',
-    //     loadChildren: () => import('@components/stopwatch/stopwatch.module').then(m => m.StopwatchModule)
-    //   }
-    // ]
+    children: [
+      {
+        path: 'timezone',
+        loadChildren: () => import('@components/timezone/timezone.module').then(m => m.TimezoneModule)
+      },
+      {
+        path: 'stopwatch',
+        loadChildren: () => import('@components/stopwatch/stopwatch.module').then(m => m.StopwatchModule)
+      }
+    ]
   }
 ];
 

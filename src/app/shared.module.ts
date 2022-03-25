@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { ButtonModule } from 'primeng/button'
-import { DropdownModule } from 'primeng/dropdown'
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -11,12 +12,14 @@ import { DropdownModule } from 'primeng/dropdown'
   imports: [
     FormsModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    MenubarModule
   ],
   exports: [
     FormsModule,
     ButtonModule,
-    DropdownModule
+    DropdownModule,
+    MenubarModule
   ]
 })
 export class SharedModule { }

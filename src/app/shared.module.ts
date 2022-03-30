@@ -1,21 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
-  declarations: [
-
-  ],
-  imports: [
-    FormsModule,
-    ButtonModule,
-    DropdownModule,
-    MenubarModule
-  ],
   exports: [
+    CommonModule,
     FormsModule,
     ButtonModule,
     DropdownModule,
